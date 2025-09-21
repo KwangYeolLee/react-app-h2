@@ -1,9 +1,24 @@
-import { Title } from "../components";
-export default function CopyMe() {
+import { Div, Title, Subtitle } from "../components";
+import * as D from "../data";
+export default function JustifyCenterTest() {
+  const boxes = D.range(0, 5).map((index) => {
+    return <Div key={index} className="bg-black w-4 m-1 h-4" />;
+  });
   return (
     <section className="mt-4">
-      <Title>CopyMe</Title>
-      <div className="mt-4"></div>
+      <Title>JustifyCenterTest</Title>
+      <div className="mt-4">
+        <Subtitle>flex flex-row justify-center</Subtitle>
+        <div className="flex flex-row justify-evenly h-48 bg-gray-300">
+          {boxes}
+        </div>
+      </div>
+      <div className="mt-4">
+        <Subtitle>flex flex-col justify-center</Subtitle>
+        <div className="flex flex-col justify-center h-48 bg-gray-300">
+          {boxes}
+        </div>
+      </div>
     </section>
   );
 }
