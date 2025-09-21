@@ -6,30 +6,18 @@ import type {
 } from "react";
 import type { WidthHeight } from "./WidthHeight";
 import type { LeftRightTopBottom } from "./LeftRightTopBottom";
-import type { MinMaxWidthHeight } from "./MinMaxWidthHeight";
-
 export type ReactDivProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 >;
 export type DivProps = ReactDivProps &
   PropsWithChildren<WidthHeight> &
-  LeftRightTopBottom &
-  MinMaxWidthHeight & {
   LeftRightTopBottom & {
     src?: string;
   };
 // prettier-ignore
 export const Div:FC<DivProps> = ({
   width, height, src, style:_style, className:_className,
-  left, right, top, bottom,
-  minWidth, maxWidth, minHeight, maxHeight,
-  ...props
-}) => {
-  const style = {
-    ..._style, width, height, backgroundImage: src && `url(${src})`,
-    left, right, top, bottom,
-    minWidth, maxWidth, minHeight, maxHeight
   left, right, top, bottom, ...props
 }) => {
   const style = {
