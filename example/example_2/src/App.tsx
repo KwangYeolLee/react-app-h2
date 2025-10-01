@@ -1,8 +1,12 @@
 import "./App.css";
-import TodoApp from "./pages/TodoApp";
+import TodoList from "./pages/TodoList";
 
 function App() {
-  return <TodoApp />;
+  return (
+    <>
+      <TodoList />
+    </>
+  );
 }
 
 export default App;
