@@ -1,5 +1,5 @@
 import NumberState from "./pages/NumberState";
-import InputTest from "./pages/NumberState";
+import InputTest from "./pages/InputTest";
 import ShowHideModal from "./pages/ShowHideModal";
 import RadioInputTest from "./pages/RadioInputTest";
 import HierOrderRadioInputTest from "./pages/HighOrderRadioInputTest";
