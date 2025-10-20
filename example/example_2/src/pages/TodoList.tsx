@@ -16,6 +16,7 @@ export default function TodoList() {
     // TODO: text가 비어있지 않으면 새로운 todo 추가
     // setTodos(...) 사용
     // setText("") 로 입력창 비우기
+    console.log(text);
   }, [text]);
 
   // 완료 토글 함수
