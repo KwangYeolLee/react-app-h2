@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 'posts' 컬렉션에 대한 규칙
+    match /posts/{postId} {
+
+      // 1. 조회 (Read): 누구나 허용
+      allow read: if true;
+
+      // 2. 생성 (Create): 로그인해야 하고, 게시글의 'userId'가 본인 UID여야 함
+      allow create: if request.auth != null
+                    && request.resource.data.userId == request.auth.uid;
+
+      // 3. 수정 (Update): 이번 프로젝트에서는 제공하지 않음.
+      // 본인에게 허용하려면 아래 4번 규칙 참고
+      allow update: if false;
+
+      // 4. 삭제 (Delete): 본인만 허용
+      allow delete: if request.auth != null
+                    && resource.data.userId == request.auth.uid;
+    }
+  }
+}
